@@ -1,5 +1,17 @@
 const projects = [
   {
+    name: "Staunch Machinery",
+    link: "https://staunchmachinery.com/",
+    description:
+      "Industrial machinery and manufacturing website focused on modern layouts, responsive development, and professional branding.",
+  },
+  {
+    name: "DAO Badran",
+    link: "https://www.dao-badran.com/",
+    description:
+      "Corporate business platform with clean UI, responsive structure, and modern digital presentation.",
+  },
+  {
     name: "Hashi Basha",
     link: "https://hashibasha.com/",
     description:
@@ -45,7 +57,7 @@ const heroLine =
   "Computer Science Student • Front-End Developer • UI Designer • Marketing & SEO Specialist • Systems & Camera Installation Experience";
 
 function runPortfolioChecks() {
-  console.assert(projects.length === 3, "Portfolio should show exactly 3 featured projects.");
+  console.assert(projects.length === 5, "Portfolio should show exactly 3 featured projects.");
   console.assert(
     projects.every((project) => project.link.startsWith("https://")),
     "Every project should use a secure HTTPS link."
@@ -61,7 +73,9 @@ function runPortfolioChecks() {
   console.assert(
     projects.some((project) => project.name === "Hashi Basha") &&
       projects.some((project) => project.name === "Eleonora Clothing") &&
-      projects.some((project) => project.name === "Al Rajhi Legacy Fund"),
+      projects.some((project) => project.name === "Al Rajhi Legacy Fund") &&
+      projects.some((project) => project.name === "Staunch Machinery") &&
+      projects.some((project) => project.name === "DAO Badran"),
     "All three requested projects should be included."
   );
   console.assert(
@@ -158,7 +172,7 @@ export default function Portfolio() {
             <h2 className="text-4xl font-black md:text-6xl">Projects I Worked On</h2>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {projects.map((project) => (
               <article
                 key={project.name}
