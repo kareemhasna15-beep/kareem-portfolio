@@ -1,232 +1,496 @@
 <!DOCTYPE html>
-<html>
-const projects = [
-  {
-    name: "Staunch Machinery",
-    link: "https://staunchmachinery.com/",
-    description:
-      "Industrial machinery and manufacturing website focused on modern layouts, responsive development, and professional branding.",
-  },
-  {
-    name: "DAO Badran",
-    link: "https://www.dao-badran.com/",
-    description:
-      "Corporate business platform with clean UI, responsive structure, and modern digital presentation.",
-  },
-  {
-    name: "Hashi Basha",
-    link: "https://hashibasha.com/",
-    description:
-      "Modern business website focused on branding, smooth user experience, and responsive design.",
-  },
-  {
-    name: "Eleonora Clothing",
-    link: "https://eleonoraclothing.com/",
-    description:
-      "Fashion e-commerce website with elegant layouts, modern UI, and optimized product presentation.",
-  },
-  {
-    name: "Al Rajhi Legacy Fund",
-    link: "https://alrajhilegacyfund.com/",
-    description:
-      "Professional financial platform with clean design, responsive sections, and structured content.",
-  },
-];
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kareem Hasna Portfolio</title>
 
-const skills = [
-  "Front-End Development",
-  "UI/UX Design",
-  "Basic Back-End Development",
-  "SEO Optimization",
-  "HubSpot Certifications",
-  "Database Configuration",
-  "Data Entry",
-  "Marketing & Ads",
-  "Camera Installations",
-  "Home Intercom Systems",
-  "Application Development",
-  "Business Technology Solutions",
-];
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-const stats = [
-  { value: "2+", label: "Years in Systems & Installations" },
-  { value: "10+", label: "Digital & Technical Projects" },
-  { value: "1+", label: "Year in Marketing & Ads" },
-  { value: "CS", label: "Computer Science Student" },
-];
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-const heroLine =
-  "Computer Science Student • Front-End Developer • UI Designer • Marketing & SEO Specialist • Systems & Camera Installation Experience";
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
 
-function runPortfolioChecks() {
-  console.assert(projects.length === 5, "Portfolio should show exactly 3 featured projects.");
-  console.assert(
-    projects.every((project) => project.link.startsWith("https://")),
-    "Every project should use a secure HTTPS link."
-  );
-  console.assert(
-    skills.includes("SEO Optimization") && skills.includes("HubSpot Certifications"),
-    "SEO and HubSpot certifications should be listed in skills."
-  );
-  console.assert(
-    !heroLine.toLowerCase().includes("20 years old"),
-    "Age should not be displayed in the hero section."
-  );
-  console.assert(
-    projects.some((project) => project.name === "Hashi Basha") &&
-      projects.some((project) => project.name === "Eleonora Clothing") &&
-      projects.some((project) => project.name === "Al Rajhi Legacy Fund") &&
-      projects.some((project) => project.name === "Staunch Machinery") &&
-      projects.some((project) => project.name === "DAO Badran"),
-    "All three requested projects should be included."
-  );
-  console.assert(
-    skills.includes("Front-End Development") &&
-      skills.includes("UI/UX Design") &&
-      skills.includes("Basic Back-End Development"),
-    "Front-end, UI design, and basic back-end skills should be included."
-  );
-}
+    body{
+      font-family:'Poppins',sans-serif;
+      background:#050505;
+      color:white;
+      overflow-x:hidden;
+    }
 
-runPortfolioChecks();
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:
+      radial-gradient(circle at 15% 20%, rgba(255,255,255,0.12), transparent 28%),
+      radial-gradient(circle at 80% 10%, rgba(180,180,180,0.14), transparent 30%),
+      radial-gradient(circle at 50% 90%, rgba(255,255,255,0.08), transparent 35%),
+      linear-gradient(135deg,#030303 0%,#111111 45%,#1f1f1f 100%);
+      z-index:-3;
+    }
 
-export default function Portfolio() {
-  return (
-    <main className="min-h-screen overflow-hidden bg-[#050505] text-white">
-      <div className="fixed inset-0 -z-30 bg-[radial-gradient(circle_at_15%_20%,rgba(255,255,255,0.12),transparent_28%),radial-gradient(circle_at_80%_10%,rgba(180,180,180,0.14),transparent_30%),radial-gradient(circle_at_50%_90%,rgba(255,255,255,0.08),transparent_35%),linear-gradient(135deg,#030303_0%,#111111_45%,#1f1f1f_100%)]" />
-      <div className="fixed inset-0 -z-20 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:55px_55px]" />
-      <div className="fixed left-[8%] top-[12%] -z-10 h-80 w-80 rounded-full bg-white/20 blur-[95px]" />
-      <div className="fixed bottom-[8%] right-[8%] -z-10 h-80 w-80 rounded-full bg-gray-400/20 blur-[95px]" />
+    .container{
+      width:min(1180px,92%);
+      margin:auto;
+    }
 
-      <div className="mx-auto w-[min(1180px,92%)]">
-        <nav className="sticky top-4 z-50 mt-5 flex items-center justify-between rounded-[26px] border border-white/10 bg-white/[0.06] px-6 py-4 shadow-[0_0_35px_rgba(255,255,255,0.08)] backdrop-blur-2xl">
-          <div className="bg-gradient-to-r from-white to-gray-400 bg-clip-text font-black tracking-[0.18em] text-transparent">
-            Kareem Hasna
-          </div>
-          <div className="hidden gap-7 text-sm text-gray-300 md:flex">
-            <a className="transition hover:text-white" href="#about">About</a>
-            <a className="transition hover:text-white" href="#projects">Projects</a>
-            <a className="transition hover:text-white" href="#experience">Experience</a>
-          </div>
-        </nav>
+    nav{
+      margin-top:20px;
+      padding:18px 26px;
+      border:1px solid rgba(255,255,255,0.12);
+      background:rgba(255,255,255,0.05);
+      backdrop-filter:blur(20px);
+      border-radius:24px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
 
-        <section className="flex min-h-[88vh] items-center justify-center py-20 text-center">
-          <div>
-            <p className="mb-6 text-xs uppercase tracking-[0.35em] text-gray-300">
-              Future Developer & Creative Builder
-            </p>
-            <h1 className="mb-6 text-5xl font-black leading-tight md:text-8xl">
-              Hi, I’m{" "}
-              <span className="bg-gradient-to-r from-white via-gray-300 to-gray-500 bg-clip-text text-transparent">
-                Kareem Hasna
-              </span>
-            </h1>
-            <p className="mx-auto max-w-4xl text-lg leading-8 text-gray-300 md:text-xl">
-              {heroLine}
-            </p>
-            <div className="mt-10 flex flex-wrap justify-center gap-4">
-              <a
-                href="#projects"
-                className="rounded-2xl bg-gradient-to-r from-gray-900 to-gray-500 px-7 py-4 font-semibold text-white shadow-[0_0_35px_rgba(255,255,255,0.14)] transition hover:-translate-y-1 hover:scale-105"
-              >
-                View My Work
-              </a>
-              <a
-                href="#about"
-                className="rounded-2xl border border-white/20 bg-white/[0.06] px-7 py-4 font-semibold text-white backdrop-blur-xl transition hover:-translate-y-1 hover:scale-105 hover:bg-white/10"
-              >
-                More About Me
-              </a>
-            </div>
-          </div>
-        </section>
+    .logo{
+      font-family:'Orbitron',sans-serif;
+      font-size:22px;
+      font-weight:900;
+      background:linear-gradient(90deg,#fff,#9ca3af);
+      -webkit-background-clip:text;
+      color:transparent;
+    }
 
-        <section id="about" className="py-24">
-          <div className="grid gap-7 lg:grid-cols-[1.2fr_0.8fr]">
-            <div className="rounded-[34px] border border-white/10 bg-white/[0.07] p-8 shadow-2xl backdrop-blur-2xl">
-              <p className="mb-5 text-xs uppercase tracking-[0.35em] text-gray-300">About Me</p>
-              <h2 className="mb-6 text-4xl font-black md:text-5xl">Passionate About Technology & Innovation</h2>
-              <div className="space-y-4 text-base leading-8 text-gray-300">
-                <p>I am currently a Computer Science student at Rafic Hariri University with strong experience in web development, marketing, systems installation, and business technology solutions.</p>
-                <p>I worked for 2 years with Al Dhua in camera installations, home intercom systems, and surveillance solutions. I also worked with data configuration and databases for UCT, a distributor for Al Dhua systems.</p>
-                <p>In addition, I worked in data entry at Al Bekai and spent over 1 year working in marketing and advertisements for startups and growing businesses.</p>
-                <p>I also worked with Gtonics as part of their team building websites and applications, helping create modern digital experiences and business solutions. My experience includes front-end development, UI design, SEO optimization, and some back-end development for modern web applications. I also earned HubSpot certifications related to digital marketing and online growth strategies.</p>
-              </div>
-            </div>
+    .nav-links a{
+      color:#d1d5db;
+      text-decoration:none;
+      margin-left:24px;
+      transition:.3s;
+    }
 
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-2">
-              {stats.map((item) => (
-                <div
-                  key={item.label}
-                  className="rounded-[26px] border border-white/10 bg-white/[0.07] p-6 backdrop-blur-xl transition hover:-translate-y-2 hover:border-white/30 hover:shadow-[0_0_45px_rgba(255,255,255,0.08)]"
-                >
-                  <h3 className="text-4xl font-black text-white">{item.value}</h3>
-                  <p className="mt-2 text-gray-300">{item.label}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+    .nav-links a:hover{
+      color:white;
+    }
 
-        <section id="projects" className="py-24">
-          <div className="mb-14 text-center">
-            <p className="mb-4 text-xs uppercase tracking-[0.35em] text-gray-300">Featured Projects</p>
-            <h2 className="text-4xl font-black md:text-6xl">Projects I Worked On</h2>
-          </div>
+    .hero{
+      min-height:90vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+    }
 
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {projects.map((project) => (
-              <article
-                key={project.name}
-                className="overflow-hidden rounded-[30px] border border-white/10 bg-white/[0.07] backdrop-blur-xl transition hover:-translate-y-2 hover:border-white/30 hover:shadow-[0_0_45px_rgba(255,255,255,0.08)]"
-              >
-                <div className="flex h-48 items-center justify-center bg-gradient-to-br from-white/10 to-gray-600/30 p-5 text-center text-2xl font-black">
-                  {project.name}
-                </div>
-                <div className="p-7">
-                  <h3 className="mb-3 text-2xl font-bold">{project.name}</h3>
-                  <p className="mb-5 leading-7 text-gray-300">{project.description}</p>
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="font-bold text-white underline decoration-gray-500 underline-offset-4 transition hover:text-gray-300"
-                  >
-                    Visit Website →
-                  </a>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
+    .tag{
+      color:#d1d5db;
+      letter-spacing:4px;
+      text-transform:uppercase;
+      font-size:13px;
+      margin-bottom:20px;
+    }
 
-        <section id="experience" className="py-24">
-          <div className="rounded-[34px] border border-white/10 bg-white/[0.07] p-8 shadow-2xl backdrop-blur-2xl">
-            <div className="mb-14 text-center">
-              <p className="mb-4 text-xs uppercase tracking-[0.35em] text-gray-300">Experience & Skills</p>
-              <h2 className="text-4xl font-black md:text-6xl">What I Bring</h2>
-            </div>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {skills.map((skill) => (
-                <div
-                  key={skill}
-                  className="rounded-2xl border border-white/10 bg-black/30 p-5 text-center font-semibold text-gray-200 transition hover:-translate-y-2 hover:border-white/30 hover:shadow-[0_0_45px_rgba(255,255,255,0.08)]"
-                >
-                  {skill}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+    .hero h1{
+      font-family:'Orbitron',sans-serif;
+      font-size:clamp(50px,8vw,90px);
+      margin-bottom:25px;
+    }
 
-        <footer className="border-t border-white/10 py-14 text-center text-gray-400">
-          <h2 className="mb-3 bg-gradient-to-r from-white via-gray-300 to-gray-500 bg-clip-text text-4xl font-black text-transparent">
-            Kareem Hasna
-          </h2>
-          <p>Computer Science Student • Developer • UI Designer • SEO & Marketing Specialist</p>
-          <p className="mt-2">© 2026 Kareem Hasna. All Rights Reserved.</p>
-        </footer>
-      </div>
-    </main>
-  );
-}
+    .gradient{
+      background:linear-gradient(90deg,#fff,#d1d5db,#6b7280);
+      -webkit-background-clip:text;
+      color:transparent;
+    }
+
+    .hero p{
+      max-width:850px;
+      margin:auto;
+      line-height:1.8;
+      color:#cbd5e1;
+      font-size:20px;
+    }
+
+    .buttons{
+      margin-top:40px;
+      display:flex;
+      justify-content:center;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:15px 28px;
+      border-radius:18px;
+      text-decoration:none;
+      color:white;
+      transition:.3s;
+      font-weight:600;
+    }
+
+    .btn-main{
+      background:linear-gradient(90deg,#1f2937,#6b7280);
+      box-shadow:0 0 35px rgba(255,255,255,.12);
+    }
+
+    .btn-outline{
+      border:1px solid rgba(255,255,255,.15);
+      background:rgba(255,255,255,.05);
+    }
+
+    .btn:hover{
+      transform:translateY(-5px);
+    }
+
+    section{
+      padding:100px 0;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:60px;
+    }
+
+    .section-title span{
+      color:#d1d5db;
+      letter-spacing:4px;
+      text-transform:uppercase;
+      font-size:13px;
+    }
+
+    .section-title h2{
+      font-family:'Orbitron',sans-serif;
+      font-size:clamp(38px,5vw,60px);
+      margin-top:10px;
+    }
+
+    .glass{
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.1);
+      border-radius:30px;
+      padding:35px;
+      backdrop-filter:blur(20px);
+    }
+
+    .about-grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:25px;
+    }
+
+    .glass p{
+      line-height:1.9;
+      color:#cbd5e1;
+      margin-bottom:16px;
+    }
+
+    .stats{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
+
+    .stat{
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.1);
+      border-radius:24px;
+      padding:25px;
+    }
+
+    .stat h3{
+      font-size:42px;
+      font-family:'Orbitron',sans-serif;
+    }
+
+    .projects{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:24px;
+    }
+
+    .project{
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.1);
+      border-radius:28px;
+      overflow:hidden;
+      transition:.3s;
+    }
+
+    .project:hover{
+      transform:translateY(-8px);
+    }
+
+    .project-top{
+      height:180px;
+      background:linear-gradient(135deg,rgba(255,255,255,.12),rgba(75,85,99,.35));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-family:'Orbitron',sans-serif;
+      font-size:24px;
+      font-weight:900;
+      text-align:center;
+      padding:20px;
+    }
+
+    .project-content{
+      padding:25px;
+    }
+
+    .project-content p{
+      color:#cbd5e1;
+      line-height:1.8;
+      margin:15px 0;
+    }
+
+    .project-content a{
+      color:white;
+      font-weight:700;
+    }
+
+    .skills{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
+    }
+
+    .skill{
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.1);
+      border-radius:20px;
+      padding:20px;
+      text-align:center;
+      font-weight:600;
+    }
+
+    footer{
+      padding:60px 0;
+      text-align:center;
+      border-top:1px solid rgba(255,255,255,.1);
+      color:#94a3b8;
+    }
+
+    @media(max-width:900px){
+      .projects,
+      .skills,
+      .about-grid{
+        grid-template-columns:1fr;
+      }
+
+      .stats{
+        grid-template-columns:1fr;
+      }
+
+      .nav-links{
+        display:none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+<nav>
+  <div class="logo">Kareem Hasna</div>
+
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+  </div>
+</nav>
+
+<section class="hero">
+
+<div>
+  <div class="tag">Future Developer & Creative Builder</div>
+
+  <h1>
+    Hi, I'm
+    <span class="gradient">Kareem Hasna</span>
+  </h1>
+
+  <p>
+    Computer Science Student • Front-End Developer • UI Designer • Marketing & SEO Specialist • Systems & Camera Installation Experience
+  </p>
+
+  <div class="buttons">
+    <a href="#projects" class="btn btn-main">View My Work</a>
+    <a href="#about" class="btn btn-outline">More About Me</a>
+  </div>
+</div>
+
+</section>
+
+<section id="about">
+
+<div class="about-grid">
+
+<div class="glass">
+
+<div class="tag">About Me</div>
+
+<h2 style="margin-bottom:25px;font-family:Orbitron;">
+  Passionate About Technology & Innovation
+</h2>
+
+<p>
+I am currently a Computer Science student at Rafic Hariri University with strong experience in web development, marketing, systems installation, and business technology solutions.
+</p>
+
+<p>
+I worked for 2 years with Al Dhua in camera installations, home intercom systems, and surveillance solutions. I also worked with data configuration and databases for UCT, a distributor for Al Dhua systems.
+</p>
+
+<p>
+I worked in data entry at Al Bekai and spent over 1 year working in marketing and advertisements for startups and growing businesses.
+</p>
+
+<p>
+I also worked with Gtonics as part of their team building websites and applications. My experience includes front-end development, UI design, SEO optimization, and some back-end development for modern web applications. I also earned HubSpot certifications related to digital marketing and online growth strategies.
+</p>
+
+</div>
+
+<div class="stats">
+
+<div class="stat">
+<h3>2+</h3>
+<p>Years in Systems & Installations</p>
+</div>
+
+<div class="stat">
+<h3>10+</h3>
+<p>Digital & Technical Projects</p>
+</div>
+
+<div class="stat">
+<h3>1+</h3>
+<p>Year in Marketing & Ads</p>
+</div>
+
+<div class="stat">
+<h3>CS</h3>
+<p>Computer Science Student</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="projects">
+
+<div class="section-title">
+<span>Featured Projects</span>
+<h2>Projects I Worked On</h2>
+</div>
+
+<div class="projects">
+
+<div class="project">
+<div class="project-top">Staunch Machinery</div>
+
+<div class="project-content">
+<h3>Staunch Machinery</h3>
+<p>Industrial machinery and manufacturing website focused on modern layouts and branding.</p>
+<a href="https://staunchmachinery.com/" target="_blank">Visit Website →</a>
+</div>
+</div>
+
+<div class="project">
+<div class="project-top">DAO Badran</div>
+
+<div class="project-content">
+<h3>DAO Badran</h3>
+<p>Corporate business platform with clean UI and responsive structure.</p>
+<a href="https://www.dao-badran.com/" target="_blank">Visit Website →</a>
+</div>
+</div>
+
+<div class="project">
+<div class="project-top">Hashi Basha</div>
+
+<div class="project-content">
+<h3>Hashi Basha</h3>
+<p>Modern business website focused on branding and smooth user experience.</p>
+<a href="https://hashibasha.com/" target="_blank">Visit Website →</a>
+</div>
+</div>
+
+<div class="project">
+<div class="project-top">Eleonora Clothing</div>
+
+<div class="project-content">
+<h3>Eleonora Clothing</h3>
+<p>Fashion e-commerce website with elegant layouts and modern UI.</p>
+<a href="https://eleonoraclothing.com/" target="_blank">Visit Website →</a>
+</div>
+</div>
+
+<div class="project">
+<div class="project-top">Al Rajhi Legacy Fund</div>
+
+<div class="project-content">
+<h3>Al Rajhi Legacy Fund</h3>
+<p>Professional financial platform with responsive sections and clean design.</p>
+<a href="https://alrajhilegacyfund.com/" target="_blank">Visit Website →</a>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section id="experience">
+
+<div class="glass">
+
+<div class="section-title">
+<span>Experience & Skills</span>
+<h2>What I Bring</h2>
+</div>
+
+<div class="skills">
+
+<div class="skill">Front-End Development</div>
+<div class="skill">UI/UX Design</div>
+<div class="skill">Basic Back-End Development</div>
+<div class="skill">SEO Optimization</div>
+<div class="skill">HubSpot Certifications</div>
+<div class="skill">Database Configuration</div>
+<div class="skill">Data Entry</div>
+<div class="skill">Marketing & Ads</div>
+<div class="skill">Camera Installations</div>
+<div class="skill">Home Intercom Systems</div>
+<div class="skill">Application Development</div>
+<div class="skill">Business Technology Solutions</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<h2 class="gradient" style="font-family:Orbitron;">
+Kareem Hasna
+</h2>
+
+<p>
+Computer Science Student • Developer • UI Designer • SEO & Marketing Specialist
+</p>
+
+<p style="margin-top:10px;">
+© 2026 Kareem Hasna. All Rights Reserved.
+</p>
+
+</footer>
+
+</div>
+
+</body>
+</html>
