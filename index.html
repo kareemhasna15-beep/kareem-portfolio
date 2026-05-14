@@ -1,226 +1,475 @@
-export default function Portfolio() {
-  const projects = [
-    {
-      name: "Hashi Basha",
-      link: "https://hashibasha.com/",
-      description:
-        "Modern business website focused on branding, smooth user experience, and responsive design.",
-    },
-    {
-      name: "Eleonora Clothing",
-      link: "https://eleonoraclothing.com/",
-      description:
-        "Fashion e-commerce website with elegant layouts, modern UI, and optimized product presentation.",
-    },
-    {
-      name: "Al Rajhi Legacy Fund",
-      link: "https://alrajhilegacyfund.com/",
-      description:
-        "Professional financial platform with clean design, responsive sections, and structured content.",
-    },
-  ];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kareem Hasna | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
 
-  return (
-    <div className="min-h-screen bg-black text-white overflow-hidden relative">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,#4f46e5,transparent_35%),radial-gradient(circle_at_bottom_left,#06b6d4,transparent_35%),radial-gradient(circle_at_center,#111827,transparent_70%)]" />
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #020617;
+      color: white;
+      overflow-x: hidden;
+    }
 
-      <div className="absolute top-0 left-0 w-full h-full opacity-20">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-cyan-500 rounded-full blur-3xl" />
-        <div className="absolute bottom-10 right-10 w-80 h-80 bg-indigo-600 rounded-full blur-3xl" />
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(0, 255, 255, 0.28), transparent 28%),
+        radial-gradient(circle at 80% 10%, rgba(99, 102, 241, 0.35), transparent 30%),
+        radial-gradient(circle at 50% 90%, rgba(14, 165, 233, 0.25), transparent 35%),
+        linear-gradient(135deg, #020617 0%, #050816 45%, #0f172a 100%);
+      z-index: -3;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 55px 55px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+      z-index: -2;
+    }
+
+    .glow-one, .glow-two {
+      position: fixed;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.45;
+      z-index: -1;
+    }
+
+    .glow-one {
+      background: #06b6d4;
+      top: 12%;
+      left: 8%;
+    }
+
+    .glow-two {
+      background: #4f46e5;
+      bottom: 8%;
+      right: 8%;
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: auto;
+    }
+
+    nav {
+      margin-top: 22px;
+      padding: 18px 26px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(20px);
+      border-radius: 26px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 16px;
+      z-index: 10;
+      box-shadow: 0 0 35px rgba(34,211,238,0.12);
+    }
+
+    .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      background: linear-gradient(90deg, #22d3ee, #818cf8);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .nav-links a {
+      color: #cbd5e1;
+      text-decoration: none;
+      margin-left: 24px;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #22d3ee;
+      text-shadow: 0 0 18px #22d3ee;
+    }
+
+    .hero {
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 70px 0;
+    }
+
+    .tag {
+      color: #22d3ee;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      font-size: 13px;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(45px, 8vw, 92px);
+      line-height: 1.08;
+      margin-bottom: 25px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #22d3ee, #3b82f6, #818cf8);
+      -webkit-background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 45px rgba(34,211,238,0.25);
+    }
+
+    .hero p {
+      color: #cbd5e1;
+      max-width: 850px;
+      margin: auto;
+      font-size: 20px;
+      line-height: 1.8;
+    }
+
+    .buttons {
+      margin-top: 38px;
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      text-decoration: none;
+      color: white;
+      padding: 15px 26px;
+      border-radius: 18px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn-main {
+      background: linear-gradient(90deg, #06b6d4, #2563eb);
+      box-shadow: 0 0 35px rgba(34,211,238,0.45);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(18px);
+    }
+
+    .btn:hover {
+      transform: translateY(-5px) scale(1.03);
+    }
+
+    section {
+      padding: 95px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 55px;
+    }
+
+    .section-title span {
+      color: #22d3ee;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 13px;
+    }
+
+    .section-title h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(34px, 5vw, 58px);
+      margin-top: 12px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .glass {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.13);
+      border-radius: 34px;
+      padding: 34px;
+      backdrop-filter: blur(22px);
+      box-shadow: 0 24px 70px rgba(0,0,0,0.35);
+    }
+
+    .glass h3 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 38px;
+      margin-bottom: 22px;
+    }
+
+    .glass p {
+      color: #cbd5e1;
+      line-height: 1.85;
+      margin-bottom: 16px;
+      font-size: 16px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .stat-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 26px;
+      padding: 25px;
+      backdrop-filter: blur(18px);
+      transition: 0.3s;
+    }
+
+    .stat-card:hover, .project-card:hover, .skill:hover {
+      transform: translateY(-8px);
+      border-color: rgba(34,211,238,0.5);
+      box-shadow: 0 0 45px rgba(34,211,238,0.16);
+    }
+
+    .stat-card h4 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 42px;
+      color: #22d3ee;
+    }
+
+    .stat-card p {
+      color: #cbd5e1;
+      margin-top: 8px;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .project-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 30px;
+      overflow: hidden;
+      transition: 0.35s;
+      backdrop-filter: blur(18px);
+    }
+
+    .project-top {
+      height: 190px;
+      background: linear-gradient(135deg, rgba(34,211,238,0.32), rgba(79,70,229,0.35));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 24px;
+      font-weight: 900;
+      padding: 20px;
+    }
+
+    .project-content {
+      padding: 26px;
+    }
+
+    .project-content h3 {
+      font-size: 24px;
+      margin-bottom: 13px;
+    }
+
+    .project-content p {
+      color: #cbd5e1;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .project-content a {
+      color: #22d3ee;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .skill {
+      background: rgba(0,0,0,0.28);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 20px;
+      padding: 22px;
+      text-align: center;
+      transition: 0.3s;
+      color: #e2e8f0;
+      font-weight: 600;
+    }
+
+    footer {
+      text-align: center;
+      padding: 55px 0;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: #94a3b8;
+    }
+
+    footer h2 {
+      font-family: 'Orbitron', sans-serif;
+      margin-bottom: 12px;
+    }
+
+    @media (max-width: 900px) {
+      .about-grid, .projects, .skills {
+        grid-template-columns: 1fr;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="glow-one"></div>
+  <div class="glow-two"></div>
+
+  <div class="container">
+    <nav>
+      <div class="logo">Kareem Hasna</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div>
+        <div class="tag">Future Developer & Creative Builder</div>
+        <h1>Hi, I’m <span class="gradient-text">Kareem Hasna</span></h1>
+        <p>20 years old • Computer Science Student • Front-End Developer • UI Designer • Marketing & SEO Specialist • Systems & Camera Installation Experience</p>
+        <div class="buttons">
+          <a href="#projects" class="btn btn-main">View My Work</a>
+          <a href="#about" class="btn btn-outline">More About Me</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="about-grid">
+        <div class="glass">
+          <span class="tag">About Me</span>
+          <h3>Passionate About Technology & Innovation</h3>
+          <p>I am currently a Computer Science student at Rafic Hariri University with strong experience in web development, marketing, systems installation, and business technology solutions.</p>
+          <p>I worked for 2 years with Al Dhua in camera installations, home intercom systems, and surveillance solutions. I also worked with data configuration and databases for UCT, a distributor for Al Dhua systems.</p>
+          <p>In addition, I worked in data entry at Al Bekai and spent over 1 year working in marketing and advertisements for startups and growing businesses.</p>
+          <p>I also worked with Gtonics as part of their team building websites and applications, helping create modern digital experiences and business solutions. My experience includes front-end development, UI design, SEO optimization, and some back-end development for modern web applications. I also earned HubSpot certifications related to digital marketing and online growth strategies.</p>
+        </div>
+
+        <div class="stats">
+          <div class="stat-card"><h4>2+</h4><p>Years in Systems & Installations</p></div>
+          <div class="stat-card"><h4>10+</h4><p>Digital & Technical Projects</p></div>
+          <div class="stat-card"><h4>1+</h4><p>Year in Marketing & Ads</p></div>
+          <div class="stat-card"><h4>CS</h4><p>Computer Science Student</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-title">
+        <span>Featured Projects</span>
+        <h2>Projects I Worked On</h2>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-10">
-        <nav className="flex items-center justify-between backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl px-6 py-4 shadow-2xl sticky top-5 z-50">
-          <h1 className="text-2xl font-bold tracking-widest bg-gradient-to-r from-cyan-400 to-indigo-500 text-transparent bg-clip-text">
-            Kareem Hasna
-          </h1>
-
-          <div className="hidden md:flex gap-8 text-sm text-gray-300">
-            <a href="#about" className="hover:text-cyan-400 transition">
-              About
-            </a>
-            <a href="#projects" className="hover:text-cyan-400 transition">
-              Projects
-            </a>
-            <a href="#experience" className="hover:text-cyan-400 transition">
-              Experience
-            </a>
+      <div class="projects">
+        <div class="project-card">
+          <div class="project-top">Hashi Basha</div>
+          <div class="project-content">
+            <h3>Hashi Basha</h3>
+            <p>Modern business website focused on branding, smooth user experience, and responsive design.</p>
+            <a href="https://hashibasha.com/" target="_blank">Visit Website →</a>
           </div>
-        </nav>
+        </div>
 
-        <section className="min-h-[85vh] flex items-center justify-center text-center">
-          <div>
-            <p className="uppercase tracking-[0.4em] text-cyan-400 mb-4 text-sm">
-              Future Developer & Creative Builder
-            </p>
-
-            <h1 className="text-6xl md:text-8xl font-black leading-tight mb-6">
-              Hi, I’m <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500 text-transparent bg-clip-text">Kareem Hasna</span>
-            </h1>
-
-            <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              20 years old • Computer Science Student • Web Developer • Marketing Specialist • Systems & Camera Installation Experience
-            </p>
-
-            <div className="mt-10 flex justify-center gap-5 flex-wrap">
-              <a
-                href="#projects"
-                className="px-8 py-4 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:scale-105 transition duration-300 shadow-[0_0_40px_rgba(34,211,238,0.5)]"
-              >
-                View My Work
-              </a>
-
-              <a
-                href="#about"
-                className="px-8 py-4 rounded-2xl border border-white/20 backdrop-blur-lg bg-white/5 hover:bg-white/10 transition duration-300"
-              >
-                More About Me
-              </a>
-            </div>
+        <div class="project-card">
+          <div class="project-top">Eleonora Clothing</div>
+          <div class="project-content">
+            <h3>Eleonora Clothing</h3>
+            <p>Fashion e-commerce website with elegant layouts, modern UI, and optimized product presentation.</p>
+            <a href="https://eleonoraclothing.com/" target="_blank">Visit Website →</a>
           </div>
-        </section>
+        </div>
 
-        <section id="about" className="py-24">
-          <div className="grid lg:grid-cols-2 gap-10 items-center">
-            <div className="backdrop-blur-2xl bg-white/5 border border-white/10 rounded-[35px] p-10 shadow-2xl">
-              <p className="text-cyan-400 uppercase tracking-[0.3em] text-sm mb-4">
-                About Me
-              </p>
-
-              <h2 className="text-5xl font-bold mb-6">
-                Passionate About Technology & Innovation
-              </h2>
-
-              <p className="text-gray-300 leading-8 text-lg mb-6">
-                I am currently a Computer Science student at Rafic Hariri University with strong experience in web development, marketing, systems installation, and business technology solutions.
-              </p>
-
-              <p className="text-gray-300 leading-8 text-lg mb-6">
-                I worked for 2 years with Al Dhua in camera installations, home intercom systems, and surveillance solutions. I also worked with data configuration and databases for UCT, a distributor for Al Dhua systems.
-              </p>
-
-              <p className="text-gray-300 leading-8 text-lg mb-6">
-                In addition, I worked in data entry at Al Bekai and spent over 1 year working in marketing and advertisements for startups and growing businesses.
-              </p>
-
-              <p className="text-gray-300 leading-8 text-lg">
-                I also worked with Gtonics as part of their team building websites and applications, helping create modern digital experiences and business solutions. My experience includes front-end development, UI design, SEO optimization, and some back-end development for modern web applications. I also earned certifications from HubSpot related to digital marketing and online growth strategies.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-2 gap-5">
-              <div className="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-xl hover:scale-105 transition duration-300 shadow-xl">
-                <h3 className="text-5xl font-black text-cyan-400">2+</h3>
-                <p className="text-gray-300 mt-3">Years Experience in Systems & Installations</p>
-              </div>
-
-              <div className="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-xl hover:scale-105 transition duration-300 shadow-xl">
-                <h3 className="text-5xl font-black text-indigo-400">10+</h3>
-                <p className="text-gray-300 mt-3">Digital & Technical Projects</p>
-              </div>
-
-              <div className="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-xl hover:scale-105 transition duration-300 shadow-xl">
-                <h3 className="text-5xl font-black text-cyan-400">1+</h3>
-                <p className="text-gray-300 mt-3">Year in Marketing & Ads</p>
-              </div>
-
-              <div className="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-xl hover:scale-105 transition duration-300 shadow-xl">
-                <h3 className="text-5xl font-black text-indigo-400">CS</h3>
-                <p className="text-gray-300 mt-3">Computer Science Student</p>
-              </div>
-            </div>
+        <div class="project-card">
+          <div class="project-top">Al Rajhi Legacy Fund</div>
+          <div class="project-content">
+            <h3>Al Rajhi Legacy Fund</h3>
+            <p>Professional financial platform with clean design, responsive sections, and structured content.</p>
+            <a href="https://alrajhilegacyfund.com/" target="_blank">Visit Website →</a>
           </div>
-        </section>
-
-        <section id="projects" className="py-24">
-          <div className="text-center mb-16">
-            <p className="uppercase tracking-[0.3em] text-cyan-400 text-sm mb-4">
-              Featured Projects
-            </p>
-            <h2 className="text-5xl font-bold">Projects I Worked On</h2>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <div
-                key={index}
-                className="group bg-white/5 border border-white/10 rounded-[35px] overflow-hidden backdrop-blur-2xl hover:-translate-y-3 transition duration-500 shadow-2xl"
-              >
-                <div className="h-52 bg-gradient-to-br from-cyan-500/30 to-indigo-600/30 flex items-center justify-center text-3xl font-black tracking-wider">
-                  {project.name}
-                </div>
-
-                <div className="p-8">
-                  <h3 className="text-2xl font-bold mb-4 group-hover:text-cyan-400 transition">
-                    {project.name}
-                  </h3>
-
-                  <p className="text-gray-300 leading-7 mb-6">
-                    {project.description}
-                  </p>
-
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    className="inline-flex items-center gap-2 text-cyan-400 hover:text-white transition"
-                  >
-                    Visit Website →
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section id="experience" className="py-24">
-          <div className="backdrop-blur-2xl bg-white/5 border border-white/10 rounded-[40px] p-12 shadow-2xl">
-            <div className="text-center mb-14">
-              <p className="uppercase tracking-[0.3em] text-cyan-400 text-sm mb-4">
-                Experience & Skills
-              </p>
-              <h2 className="text-5xl font-bold">What I Bring</h2>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {[
-                "Web Development",
-                "Application Development",
-                "Database Configuration",
-                "Data Entry",
-                "Marketing & Ads",
-                "Camera Installations",
-                "Home Intercom Systems",
-                "Business Technology Solutions",
-                "SEO Optimization",
-                "Front-End Development",
-                "UI/UX Design",
-                "Basic Back-End Development",
-              ].map((skill, index) => (
-                <div
-                  key={index}
-                  className="bg-black/30 border border-white/10 rounded-2xl p-6 text-center hover:bg-cyan-500/10 hover:border-cyan-400/30 transition duration-300"
-                >
-                  <p className="font-semibold text-lg">{skill}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <footer className="py-16 text-center text-gray-400 border-t border-white/10 mt-10">
-          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-indigo-500 text-transparent bg-clip-text">
-            Kareem Hasna
-          </h2>
-
-          <p className="text-lg mb-6">
-            Computer Science Student • Developer • Marketing Specialist • Systems Expert
-          </p>
-
-          <p className="text-sm text-gray-500">
-            © 2026 Kareem Hasna. All Rights Reserved.
-          </p>
-        </footer>
+        </div>
       </div>
-    </div>
-  );
-}
+    </section>
+
+    <section id="experience">
+      <div class="glass">
+        <div class="section-title">
+          <span>Experience & Skills</span>
+          <h2>What I Bring</h2>
+        </div>
+
+        <div class="skills">
+          <div class="skill">Front-End Development</div>
+          <div class="skill">UI/UX Design</div>
+          <div class="skill">Basic Back-End Development</div>
+          <div class="skill">SEO Optimization</div>
+          <div class="skill">HubSpot Certifications</div>
+          <div class="skill">Database Configuration</div>
+          <div class="skill">Data Entry</div>
+          <div class="skill">Marketing & Ads</div>
+          <div class="skill">Camera Installations</div>
+          <div class="skill">Home Intercom Systems</div>
+          <div class="skill">Application Development</div>
+          <div class="skill">Business Technology Solutions</div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <h2 class="gradient-text">Kareem Hasna</h2>
+      <p>Computer Science Student • Developer • UI Designer • SEO & Marketing Specialist</p>
+      <p>© 2026 Kareem Hasna. All Rights Reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
